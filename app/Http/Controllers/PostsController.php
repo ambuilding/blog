@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Repositories\Posts;
 
 class PostsController extends Controller
 {
@@ -11,14 +12,18 @@ class PostsController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index()
+    public function index(Posts $posts)
     {
         //return session('message');
 
+        //dd($posts);
+        $posts = $posts->all();
+        //$posts = (new Posts)->all();
+/*
         $posts = Post::latest()
         ->filter(request(['month', 'year']))
         ->get();
-
+*/
         //$posts = Post::all();
         //$posts = Post::latest(); //->get();
         //$posts = Post::orderBy('created_at', 'asc')->get();
@@ -82,7 +87,7 @@ class PostsController extends Controller
         auth()->user()->publish(new Post(request(['title', 'body'])));
 
     	//Post::create(request(['title', 'body', 'user_id']));
-        
+
         session()->flash('message', 'Your post has now been published.');
 
         // flash('Your message here')
