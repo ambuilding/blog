@@ -13,7 +13,7 @@ class Post extends Model
 	public function user() { // $comment->post->user
     	return $this->belongsTo(User::class);
     }
-	
+
 	public function addComment($body) {
 		$this->comments()->create(compact('body'));
     	// Comment::create([
@@ -32,6 +32,12 @@ class Post extends Model
             $query->whereYear('created_at', $year);
         }
     }
+
+    // public function scopeSearch($query, $search)
+    // {
+    //     return $query->where('title', 'LIKE', "%$search%")
+    //         ->orWhere('body', 'LIKE', "%$search%");
+    // }
 
     public static function archives()
     {

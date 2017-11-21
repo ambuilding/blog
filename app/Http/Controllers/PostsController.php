@@ -14,10 +14,14 @@ class PostsController extends Controller
 
     public function index(Posts $posts)
     {
+        $query = request('q');
+
+        $posts = $query
+            ? $posts->search($query)
+            : $posts->all();
         //return session('message');
 
         //dd($posts);
-        $posts = $posts->all();
         //$posts = (new Posts)->all();
 /*
         $posts = Post::latest()

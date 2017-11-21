@@ -1,5 +1,25 @@
         <div class="col-sm-3 offset-sm-1 blog-sidebar">
 
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4>Search</h4>
+              </div>
+
+              <div class="panel-body">
+                  <form method="GET" action="/">
+                      <div class="form-group">
+                          <input type="text" placeholder="Search for something..." name="q" class="form-control">
+                      </div>
+
+                      <div class="form-group">
+                          <button class="btn btn-default" type="submit">Search</button>
+                      </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+
           <div class="sidebar-module sidebar-module-inset">
             <h4>About</h4>
             <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
@@ -39,6 +59,6 @@
               <li><a href="#">Facebook</a></li>
             </ol>
           </div>
-          
+
         </div><!-- /.blog-sidebar -->
-        
+

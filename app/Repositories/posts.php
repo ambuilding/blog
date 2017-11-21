@@ -21,6 +21,14 @@ class Posts {
         	->get();
 	}
 
+	public function search($query)
+    {
+        return Post::where('title', 'LIKE', "%$query%")
+            ->orWhere('body', 'LIKE', "%$query%")
+            ->orderBy('created_at', 'desc')
+            ->get();
+    }
+
 	public function find()
 	{
 
